@@ -1,15 +1,33 @@
-
 import os
+
 from pathlib import Path
+
+from dotenv import load_dotenv
 from inference_sdk import InferenceHTTPClient, InferenceConfiguration
 
-# Read the API key from the environment variable
-api_key = os.environ.get("ROBOFLOW_API_KEY")
+
+# Load environment variables from the .env file beside this script
+project_dir = Path(__file__).resolve().parent
+load_dotenv(project_dir / ".env")
+
+
+api_key = os.getenv("ROBOFLOW_API_KEY")
 
 if not api_key:
     raise ValueError(
-        "ROBOFLOW_API_KEY is not set. Set it in your PowerShell terminal."
+        "ROBOFLOW_API_KEY is missing. Add it to your .env file."
     )
+
+
+
+
+# # Read the API key from the environment variable
+# api_key = os.environ.get("ROBOFLOW_API_KEY")
+
+# if not api_key:
+#     raise ValueError(
+#         "ROBOFLOW_API_KEY is not set. Set it in your PowerShell terminal."
+#     )
 
 # Connect to Roboflow
 client = InferenceHTTPClient(
@@ -21,7 +39,7 @@ client = InferenceHTTPClient(
 
 # Folder containing your encroachment photos
 image_folder = Path(
-    r"C:\Users\rohit\Downloads\Encroached\Encroached\Our Captures"
+    r"C:\Users\rohit\Downloads\Encroached\Encroached\New folder"
 )
 
 # Get the first five JPG images
@@ -54,3 +72,22 @@ for image_path in image_files:
     print(predictions)
 
 print("\nFinished testing images.")
+
+
+
+
+
+from pathlib import Path
+import os
+from inference_sdk import InferenceHTTPClient
+
+api_key = os.environ["ROBOFLOW_API_KEY"]
+
+client = InferenceHTTPClient(
+    api_url="https://serverless.roboflow.com",
+    api_key=api_key
+)
+
+image_folder = Path(
+    r"C:\Users\rohit\Downloads\Encroached\Encroached\New folder"
+)

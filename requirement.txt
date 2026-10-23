@@ -12,3 +12,6 @@ python -m pip show label-studio
 
 
 python -m pip install rfdetr supervision opencv-python
+
+
+python test_workflow.py

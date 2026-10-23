@@ -1,19 +1,13 @@
+.venv/ 
+venv/ 
+env/ 
+__pycache__/ 
+*.pyc 
+*.pt 
+runs/ 
+.env 
 
-# Python virtual environment
-.venv/
-venv/
-env/
 
-# Python cache files
-__pycache__/
-*.py[cod]
-
-# Environment variables and secrets
 .env
-.env.*
-
-# Model outputs
-runs/
-
-
-*.pt
+.venv/
+__pycache__/
