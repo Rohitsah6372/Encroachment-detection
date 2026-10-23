@@ -1,0 +1,14 @@
+py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python --version
+python -m pip install --upgrade pip
+python -m pip install ultralytics opencv-python
+python -c "from ultralytics import YOLO; print('YOLO is working')"
+
+python -m pip install label-studio
+python -m pip show label-studio
+.\.venv\Scripts\label-studio.exe
+
+
+
+python -m pip install rfdetr supervision opencv-python
